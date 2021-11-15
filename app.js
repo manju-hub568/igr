@@ -24,7 +24,7 @@ app.get('/igr_dataset', async (req, res) => {
  app.post('/v1/landdata/igr', async (req, res) => {
      try {
           const {locality,building_name,area} = req.body;
-          if(locality == '' && building_name && area == '') {
+          if(locality == '' && building_name == '' && area == '') {
                res.status(401).send("Please Fill Any One Field")
           } else {
           const Data = await Igr.find({$or: [
