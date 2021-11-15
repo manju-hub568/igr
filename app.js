@@ -23,22 +23,17 @@ app.get('/igr_dataset', async (req, res) => {
 
  app.post('/v1/landdata/igr', async (req, res) => {
      try {
-//           const {locality,building_name,area} = req.body;
-// if(locality !== '' && name !== '' && area !== '') {
-//           const Data = await Igr.find({$or: [
-//                {Locality:locality},
-//                {Building_Name:building_name},
-//                {Area:area}
-//           ]}).limit(1);
-//                res.status(201).send(Data);
-//      } else {
+          const {locality,building_name,area} = req.body;
+          if(locality == '' && building_name && area == '') {
+               res.status(401).send("Please Fill Any One Field")
+          } else {
           const Data = await Igr.find({$or: [
                {Locality:locality},
-               {Building_Name:name},
+               {Building_Name:building_name},
                {Area:area}
           ]});
-               res.status(201).send(Data);          
-//      }
+               res.status(201).send(Data);     
+     }     
 
      } catch (e) {
           res.status(400).send(e);
