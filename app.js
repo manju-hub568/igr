@@ -23,11 +23,11 @@ app.get('/igr_dataset', async (req, res) => {
 
  app.post('/v1/landdata/igr', async (req, res) => {
      try {
-//           const {locality,name,area} = req.body;
+//           const {locality,building_name,area} = req.body;
 // if(locality !== '' && name !== '' && area !== '') {
 //           const Data = await Igr.find({$or: [
 //                {Locality:locality},
-//                {Building_Name:name},
+//                {Building_Name:building_name},
 //                {Area:area}
 //           ]}).limit(1);
 //                res.status(201).send(Data);
